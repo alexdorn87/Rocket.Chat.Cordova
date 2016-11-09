@@ -34,7 +34,7 @@ window.registerServer = (serverAddress) ->
 		serverAddress = baseUrl.replace("http://", "http://sandstorm:#{auth}@").replace("https://", "https://sandstorm:#{auth}@")
 
 	if serverAddress.length is 0
-		serverAddress = 'https://demo.rocket.chat'
+		serverAddress = 'https://chat-stage.ubegin.com'
 
 	if not /(^https?:\/\/)|(\.)|(^localhost(:\d+)?$)/.test serverAddress
 		serverAddress = 'https://' + serverAddress + '.rocket.chat'

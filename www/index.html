@@ -16,12 +16,9 @@
     </head>
     <body>
         <section id="startView" class="view keyboard">
-            <div class="logo">
-                <img src="icons/icon.png" />
-            </div>
             <div class="server-enter">
                 <form novalidate="novalidate">
-                    <input type="url" id="serverAddress" placeholder="https://demo.rocket.chat" />
+                    <input type="url" id="serverAddress" placeholder="https://chat-stage.ubegin.com" value="https://chat-stage.ubegin.com" />
 
                     <div class="connect-button">
                         <button type="submit" id="serverAddressButton"><span data-i18n="Connect"></span></button>
@@ -30,11 +27,6 @@
 
                 <div id="alert-messages"></div>
             </div>
-
-            <div class="server-list-info">
-                <span data-i18n="Swipe_2_fingers_up_to_open_the_server_list_or_click_here"></span>
-            </div>
-
             <!-- <div class="server-info">
                 Beta 8<br/>2015-11-28
             </div> -->
@@ -66,6 +58,9 @@
 
         <script type="text/javascript">
             FastClick.attach(document.body);
+            /*$("#serverAddress").val("https://chat-stage.ubegin.com");
+            $("#serverAddressButton").click();*/
+            window.registerServer ("https://chat-stage.ubegin.com");
             function handleOpenURL(url) {
               if (url.indexOf('clientapp-rocketchat:') !== 0) {
                 return;
@@ -73,6 +68,7 @@
               window.AUTOLOAD = false;
               url = url.replace("%23", "#"); // iOS escapes the # character. Unescape it.
               url = url.slice('clientapp-rocketchat:'.length);
+
               Servers.onLoad(function () {
                 registerServer(url);
               });
